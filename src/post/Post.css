@@ -1,0 +1,79 @@
+.search {
+  position: relative;
+  width: 500px;
+}
+
+input.searchBar {
+  width: 100%;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+img.searchIcon {
+  position: absolute;
+  width: 17px;
+  top: 10px;
+  right: 12px;
+  margin: 0;
+}
+
+main {
+    margin-left: 200px;
+}
+
+.aside {
+  background-color: white;
+  text-align: center;
+  position: fixed;
+  background-color: white;
+  width: 200px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-right: 1px solid #d3d3d3;
+  box-sizing: border-box;
+}
+.homebutton {
+  width: 200px;
+  top: 100px;
+  bottom: 100px;
+  left: 0;
+  background-color: #5f2b77;
+  background-image: url(../image/homeicon.png);
+}
+.aside .option-title {
+  text-align: center;
+  padding: 20px 0 0 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: gray;
+}
+.aside .option-logout {
+  bottom: 0px;
+  text-align: center;
+  padding: 50px 0 0 0;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 210px;
+  color: red;
+}
+.aside ul {
+  padding: 0 0 0 0;
+  list-style-type: none;
+  font-size: 15px;
+  margin: 32px 0;
+  line-height: 2rem;
+}
+.aside ul li {
+  cursor: pointer;
+}
+.aside ul li.on {
+  background-color: #ddd;
+  color: gray;
+}
+.aside ul li:hover {
+  color: white;
+  background-color: #444;
+}
