@@ -1,6 +1,78 @@
+@import "reset.css";
+
+header{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 15px 250px 500px 450px 24px;
+    grid-template-areas:
+    'left-space times nav searchbar right-space';
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100px;
+    line-height: 80px;
+    background-color: #b480cc;
+    box-shadow: 0 0 6px gray;
+}
+
+.left {
+    grid-area: left-space;
+    width: 30px;
+}
+
+.right {
+    grid-area: right-space;
+    width: 30px;
+}
+
+header .times{
+    padding-top: 10px;
+    grid-area: times;
+    font-size: 1.7rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+}
+
+header nav{
+    grid-area: nav;
+}
+
+header nav li{
+    padding-top: 10px;
+    display: inline-block;
+    margin-right: 70px;
+    padding-bottom: 13px;
+}
+
+header nav li{
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+header nav li:hover{
+    background-color: #765d81;
+    border-bottom: 4px solid white;
+    opacity: 0.67;
+    height: 76px;
+}
+
+header ul li {
+    list-style-type: none;
+    cursor: pointer;
+  }
+
+header .search{
+    grid-area: searchbar;
+}
+
 .search {
+    padding-top: 10px;
   position: relative;
-  width: 500px;
+  height: 120px;
+  width: 400px;
+
 }
 
 input.searchBar {
@@ -12,10 +84,11 @@ input.searchBar {
 }
 
 img.searchIcon {
+    cursor: pointer;
   position: absolute;
   width: 17px;
-  top: 10px;
-  right: 12px;
+  top: 45px;
+  right: 0px;
   margin: 0;
 }
 
@@ -42,6 +115,7 @@ main {
   left: 0;
   background-color: #5f2b77;
   background-image: url(../image/homeicon.png);
+  cursor: pointer;
 }
 .aside .option-title {
   text-align: center;
@@ -58,6 +132,7 @@ main {
   font-weight: 700;
   margin-top: 210px;
   color: red;
+  cursor: pointer;
 }
 .aside ul {
   padding: 0 0 0 0;
