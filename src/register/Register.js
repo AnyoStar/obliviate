@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Form, Button, Container, Row, Col } from 'react-bootstrap';
 import serverIp from "../value/strings";
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import style from '../styles/Auth.module.css';   
 import { useNavigate } from 'react-router-dom';
 function Register() {
@@ -94,7 +92,7 @@ function Register() {
       });
   }
 
-  document.body.style.backgroundColor="#5F2B77"
+  // document.body.style.backgroundColor="#5F2B77"
 
   return (
 

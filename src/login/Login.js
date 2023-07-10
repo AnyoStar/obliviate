@@ -12,7 +12,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  document.body.style.backgroundColor = "#5F2B77";
+  // document.body.style.backgroundColor = "#5F2B77";
 
   const handleSubmit = () => {
     const loginInfo = {
