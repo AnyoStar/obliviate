@@ -1,16 +1,53 @@
 import { useState } from "react";
-import { Form, Button, Nav, Container } from "react-bootstrap";
+import { Form, Button, Nav, Container, ToastContainer } from "react-bootstrap";
 import { getCurrrentUser } from "../auth/tokenService";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function AddPost() {
     const id = getCurrrentUser().id;
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    const navigate = useNavigate();
 
     //todo: 포스트 추가를 해야한다! id랑 제목, 내용은 만들어 둠. 전달만 하면 돼!
 
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      const postInfo = {
+        title: title,
+        content: content,
+        user_id: id
+      }
+
+      fetch("http://localhost:4000/addPost", {
+        method: "POST",
+        headers: {
+          "Content-Type": `application/json`,
+        },
+        body: JSON.stringify(postInfo),
+      })
+      .then((response) => response.json())
+      .then((json) => {
+        if(json.error) {
+          if(json.error === "INVALID PARAMETER") {
+            toast("INVALID PARAMETER. 빈 값이 있습니다.");
+            return;
+          }
+          toast("서버와의 통신이 불안정합니다.");
+          return;
+        }
+        toast("글이 작성되었습니다.");
+        setTimeout(() => {
+          navigate("/post");
+        }, 2000);
+      })
+    }
+
   return (
     <Container>
+      <ToastContainer />
       <div>
         <Nav
           activeKey="/home"
@@ -19,7 +56,7 @@ function AddPost() {
         >
           <Nav.Item className="justify-content-center align-self-center">
             <Button variant="danger">초기화</Button>{" "}
-            <Button variant="primary">글 작성</Button>{" "}
+            <Button variant="primary" onClick={handleSubmit}>글 작성</Button>{" "}
           </Nav.Item>
           /
         </Nav>
