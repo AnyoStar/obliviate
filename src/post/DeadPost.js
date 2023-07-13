@@ -7,15 +7,15 @@ import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Link, useNavigate } from "react-router-dom";
 import PostCard from "./PostCard";
 
-function Post() {
+function DeadPost() {
   const [search, setSearch] = useState("asdf");
   const [posts, setPosts] = useState([]);
   const [isPostEmpty, setIsPostEmpty] = useState(false);
   const navigate = useNavigate();
 
-  const fetchLivePosts = () => {
+  const fetchDeadPosts = () => {
     //최근 순 글
-    fetch(`http://${serverIp}:4000/fetchPost`)
+    fetch(`http://${serverIp}:4000/fetchExpire`)
       .then((response) => response.json())
       .then((json) => {
         if (json.data === null) {
@@ -27,18 +27,13 @@ function Post() {
       });
   };
 
-  const gotoDead = () => {
-    navigate('/deadPost');
-  }
-
-  const logout = () => {
-    localStorage.removeItem('token');
-    navigate('/login');
+  const gotoLive = () => {
+    navigate('/post');
   }
 
   useEffect(() => {
     //글 불러오기
-    fetchLivePosts();
+    fetchDeadPosts();
   }, []);
 
   return (
@@ -64,7 +59,7 @@ function Post() {
             현재 시간
           </Nav.Item>
           <Nav.Item className="justify-content-center align-self-center ms-5 fs-2">
-            <Nav.Link onClick={gotoDead}>잊혀진 글</Nav.Link>
+            <Nav.Link onClick={gotoLive}>아직 기억되는 글</Nav.Link>
           </Nav.Item>
           <Nav.Item className="justify-content-center align-self-center ms-5 fs-2">
             <Nav.Link eventKey="link-2">내 정보</Nav.Link>
@@ -87,28 +82,6 @@ function Post() {
           </Nav.Item>
         </Nav>
       </div>
-      <Sidebar
-        style={{ display: "inline-block", position: "fixed", zIndex: "1" }}
-      >
-        <Menu
-          menuItemStyles={{
-            button: {
-              // the active class will be added automatically by react router
-              // so we can use it to style the active menu item
-              [`&.active`]: {
-                backgroundColor: "#13395e",
-                color: "#b6c8d9",
-              },
-            },
-          }}
-        >
-          <MenuItem component={<Link to="/ddsdsd" />}> 최근 게시물</MenuItem>
-          <MenuItem component={<Link to="/a" />}> 베스트 게시물</MenuItem>
-          <MenuItem component={<Link to="/addPost" />}> 글 작성</MenuItem>
-          <MenuItem component={<Link to="/e" />}> 즐겨찾기</MenuItem>
-          <MenuItem onClick={logout}> 로그아웃</MenuItem>
-        </Menu>
-      </Sidebar>
       {/*글 조회*/}
       {isPostEmpty ? (
         <span>기억에 남은 포스트가 없습니다.</span>
@@ -175,4 +148,4 @@ function Post() {
   );
 }
 
-export default Post;
+export default DeadPost;

@@ -6,6 +6,7 @@ import Register from "./register/Register";
 import Post from "./post/Post";
 import "./App.css";
 import AddPost from "./post/AddPost";
+import DeadPost from "./post/DeadPost";
 
 
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/post" element={<Post />} />
           <Route path="/addPost" element={<AddPost />} />
+          <Route path="/deadPost" element={<DeadPost/>} />
         </Routes>
       </Router>
     </Container>

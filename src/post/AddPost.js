@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Form, Button, Nav, Container, ToastContainer } from "react-bootstrap";
 import { getCurrrentUser } from "../auth/tokenService";
 import { toast } from "react-toastify";
+import serverIp from "../value/strings";
 import { useNavigate } from "react-router-dom";
 
 function AddPost() {
@@ -9,8 +10,6 @@ function AddPost() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const navigate = useNavigate();
-
-    //todo: 포스트 추가를 해야한다! id랑 제목, 내용은 만들어 둠. 전달만 하면 돼!
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -21,7 +20,7 @@ function AddPost() {
         user_id: id
       }
 
-      fetch("http://localhost:4000/addPost", {
+      fetch(`http://${serverIp}:4000/addPost`, {
         method: "POST",
         headers: {
           "Content-Type": `application/json`,
@@ -47,8 +46,8 @@ function AddPost() {
 
   return (
     <Container>
-      <ToastContainer />
       <div>
+      <ToastContainer />
         <Nav
           activeKey="/home"
           onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}

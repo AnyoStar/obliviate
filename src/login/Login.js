@@ -7,10 +7,12 @@ import { Col, Container, Row } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   // document.body.style.backgroundColor = "#5F2B77";
 
@@ -41,6 +43,7 @@ function Login() {
         toast("로그인 성공");
         localStorage.setItem("token", json.data);
         //포스트로 이동
+        navigate('/post');
       });
   };
 
