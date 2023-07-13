@@ -3,8 +3,7 @@ import serverIp from "../value/strings";
 
 import { useState, useEffect } from "react";
 
-import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PostCard from "./PostCard";
 
 function DeadPost() {
@@ -28,8 +27,8 @@ function DeadPost() {
   };
 
   const gotoLive = () => {
-    navigate('/post');
-  }
+    navigate("/post");
+  };
 
   useEffect(() => {
     //글 불러오기
@@ -93,10 +92,7 @@ function DeadPost() {
               posts.map((post) => {
                 return (
                   <div key={post.posts_id} className="mb-4">
-                    <PostCard
-                      title={post.title}
-                      content={post.content}
-                    />
+                    <PostCard title={post.title} content={post.content} />
                   </div>
                 );
               })

@@ -1,14 +1,13 @@
 import { Card } from "react-bootstrap";
 
-const PostCard = ({title, content}) => {
-  
+const PostCard = ({ title, content }) => {
   return (
-    <div style={{ display: "inline-block"}}>
-      <Card style={{ width: 1000, height: 250, margin: 30}}>
+    <div style={{ display: "inline-block" }}>
+      <Card style={{ width: 1000, height: 250, margin: 30 }}>
         <Card.Title>
-        <span>{title}</span>
+          <span>{title}</span>
         </Card.Title>
-        <hr/>
+        <hr />
         <Card.Text>
           <span>{content}</span>
         </Card.Text>

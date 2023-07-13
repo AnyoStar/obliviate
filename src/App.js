@@ -8,11 +8,9 @@ import "./App.css";
 import AddPost from "./post/AddPost";
 import DeadPost from "./post/DeadPost";
 
-
-
 function App() {
   return (
-    <Container style={{margin: '0px', padding: '0px'}}>
+    <Container style={{ margin: "0px", padding: "0px" }}>
       <Router>
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
@@ -20,7 +18,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/post" element={<Post />} />
           <Route path="/addPost" element={<AddPost />} />
-          <Route path="/deadPost" element={<DeadPost/>} />
+          <Route path="/deadPost" element={<DeadPost />} />
         </Routes>
       </Router>
     </Container>

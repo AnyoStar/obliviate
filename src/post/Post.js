@@ -28,13 +28,13 @@ function Post() {
   };
 
   const gotoDead = () => {
-    navigate('/deadPost');
-  }
+    navigate("/deadPost");
+  };
 
   const logout = () => {
-    localStorage.removeItem('token');
-    navigate('/login');
-  }
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
 
   useEffect(() => {
     //글 불러오기
@@ -120,10 +120,7 @@ function Post() {
               posts.map((post) => {
                 return (
                   <div key={post.posts_id} className="mb-4">
-                    <PostCard
-                      title={post.title}
-                      content={post.content}
-                    />
+                    <PostCard title={post.title} content={post.content} />
                   </div>
                 );
               })
