@@ -1,3 +1,3 @@
-const hostIP = "192.168.84.3";
+const hostIP = "127.0.0.1";
 
 export default hostIP;
